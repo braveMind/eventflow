@@ -52,14 +52,14 @@ end:结束节点。
 # 九、与Activiti 对比
  
 Activiti是基于BPMN2.0规范的一个开源的工作流引擎，功能比较强大，但是需要与业务紧耦合在一起，比较重量级，需要数据库的支持，用来做审批，流程查询等比较适合企业OA系统。
-Event-Flow的关注点是：事件编排。所以不会依赖数据库，对流程信息进行保存，核心代码只有2000多行，适合基于事件驱动的业务逻辑处理。
+Event-Flow的关注点是：事件编排。所以不会依赖数据库，对流程信息进行保存，非常轻量级，适合基于事件触发的业务逻辑处理。
  
-#十、未来展望
+# 十、未来展望
  
 提供画图工具自动生成XML，以及图片。
 根据业务需求，可进行再扩展，例如事件:fork/join 事件之间等待聚合，事件异步执行，事件执行前后可拦截等。
  
-#十一、设计参考：
+# 十一、设计参考：
 Activiti源码：https://github.com/Activiti/Activiti
 Activiti工作流https://www.activiti.org/
 BPMN规范：https://camunda.org/bpmn/reference/
