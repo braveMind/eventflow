@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+	<bean class="com.event.flow.core.impl.EventFlowEngineImpl" proxy="transaction"/>
+	<bean class="com.event.flow.core.impl.TaskService" proxy="transaction"/>
+	<bean class="com.event.flow.core.impl.ProcessService" proxy="transaction"/>
+
+</config>

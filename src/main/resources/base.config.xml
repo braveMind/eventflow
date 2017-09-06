@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+	<bean name="start" class="com.event.flow.core.praser.impl.StartParser"/>
+	<bean name="task" class="com.event.flow.core.praser.impl.TaskPaser"/>
+
+	<bean name="decision" class="com.event.flow.core.praser.impl.DecisionParser"/>
+
+	<bean name="end" class="com.event.flow.core.praser.impl.EndParser"/>
+	<bean class="com.event.flow.core.impl.JuelExpression"/>
+
+</config>

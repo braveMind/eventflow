@@ -1,0 +1,48 @@
+<process displayName="简历流程" name="resumeD">
+    <start displayName="start1" name="start1">
+        <transition name="简历判重" to="decision1"/>
+    </start>
+
+    <decision displayName="简历是否重复" handleClass="com.event.flow.core.Test.CheckRepeat" name="decision1">
+        <transition displayName="是" expr="${repeat}" name="decision2" to="decision2"/>
+        <transition displayName="否" expr="${!repeat}" name="toTask2" to="task2"/>
+    </decision>
+
+    <decision displayName="简历是否是覆盖渠道" handleClass="com.event.flow.core.Test.SourceDesion" name="decision2">
+        <transition displayName="是" expr="${cover}" name="toTask3" to="task3"/>
+        <transition displayName="否" expr="${!cover}" name="toTask3" to="decision3"/>
+    </decision>
+
+    <decision displayName="是否为候选人自主投递伯乐" handleClass="com.event.flow.core.Test.SelfPost" name="decision3">
+        <transition displayName="是" expr="${yes}" name="toTask3" to="task3"/>
+        <transition displayName="否" expr="${!yes}" name="decision4" to="decision4"/>
+    </decision>
+
+
+    <decision displayName="是否存在“渠道-操作人”的归档" handleClass="com.event.flow.core.Test.ArchereDesion" name="decision4">
+        <transition displayName="是" expr="${operationY}" name="toTask3" to="task4"/>
+        <transition displayName="否" expr="${!operationY}" name="toTask3" to="task5"/>
+    </decision>
+
+    <task performType="ANY" displayName="触发简历不重复任务" name="task2">
+        <transition name="transition5" to="end1"/>
+    </task>
+
+    <task name="task2" performType="ANY" callback="com.event.flow.core.Test.TaskHandler">
+        <transition to="end1"/>
+    </task>
+
+    <task name="task3" performType="ANY" callback="com.event.flow.core.Test.TaskHandler">
+        <transition to="end1"/>
+    </task>
+
+    <task name="task4" performType="ANY" callback="com.event.flow.core.Test.TaskEndCallBack">
+        <transition to="end1"/>
+    </task>
+
+    <task name="task5" performType="ANY" callback="com.event.flow.core.Test.TaskHandler">
+        <transition to="end1"/>
+    </task>
+
+    <end name="end1"/>
+</process>
